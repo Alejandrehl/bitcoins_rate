@@ -13,12 +13,9 @@ class Body extends React.Component {
         return response.json()
       })
       .then( (data) => {
-        console.log(data)
-        console.log(typeof data)
         this.setState({
           exchange_rates: Object.entries(data)
         })
-        console.log(this.state.exchange_rates)
       })
       .catch( (error) => {
         console.log(error)
@@ -31,6 +28,5 @@ class Body extends React.Component {
         <AllExchangeRates exchange_rates={this.state.exchange_rates} />
       </div>
     )
-
   }
 }
