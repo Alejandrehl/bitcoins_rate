@@ -9,6 +9,7 @@ class Body extends React.Component {
   }
 
   componentDidMount(){
+    this.fetchBPI()
     setInterval( () => {
       this.fetchRates()
       this.fetchBPI()
@@ -39,7 +40,7 @@ class Body extends React.Component {
       })
       .then( (data) => {
         this.setState({
-          bitcoin_prices: Object.entries(data)
+          bitcoin_prices: data
         })
       })
       .catch( (error) => {
@@ -50,6 +51,10 @@ class Body extends React.Component {
   render(){
     return (
       <div>
+        <h1>Información en tiempo real del bitcoin - USD</h1>
+        <BitcoinPriceUSD bitcoin_prices={this.state.bitcoin_prices} />
+        <br/>
+        <h1>Información del bitcoin desfasada en 15 minutos - Todas las monedas</h1>
         <AllExchangeRates exchange_rates={this.state.exchange_rates} />
       </div>
     )
