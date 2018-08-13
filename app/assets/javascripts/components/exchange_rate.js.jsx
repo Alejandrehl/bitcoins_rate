@@ -4,16 +4,6 @@ class ExchangeRate extends React.Component{
     super(props)
   }
 
-  componentDidMount(){
-    this.rechargeTable()
-  }
-
-  rechargeTable(){
-    setInterval( () => {
-      location.reload()
-    }, 3000);
-  }
-
   render(){
     return(
       <tr>

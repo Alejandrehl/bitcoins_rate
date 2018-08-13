@@ -8,6 +8,12 @@ class Body extends React.Component {
   }
 
   componentDidMount(){
+    setInterval( () => {
+      this.fetchRates()
+    }, 3000);
+  }
+
+  fetchRates(){
     fetch('https://blockchain.info/ticker')
       .then( (response) => {
         return response.json()
