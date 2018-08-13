@@ -8,9 +8,12 @@ class Body extends React.Component {
   }
 
   componentDidMount(){
+    this.fetchRates()
+
     setInterval( () => {
       this.fetchRates()
     }, 3000);
+
   }
 
   fetchRates(){

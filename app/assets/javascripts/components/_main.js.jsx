@@ -1,9 +1,8 @@
 const Main = (props) => {
   return(
     <div className="container text-center">
-      <h1>Bitcoins Rates</h1>
+      <h1>Bitcoins prince index & Bitcoins exchange rates</h1>
       <p>
-        Utilizando Exchange Rates Api<br/><br/>
         Puedes revisar la documentación en los siguientes enlaces:<br/>
       </p>
       <ul className="col-md-4 offset-md-4">

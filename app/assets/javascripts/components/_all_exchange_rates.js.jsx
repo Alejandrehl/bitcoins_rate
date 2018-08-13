@@ -7,7 +7,7 @@ const AllExchangeRates = (props) => {
   })
 
   return(
-    <table className="table table-hover">
+    <table className="table table-striped">
       <thead>
         <tr>
           <th>Currency</th>
