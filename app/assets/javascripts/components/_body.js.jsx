@@ -3,16 +3,16 @@ class Body extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      exchange_rates: []
+      exchange_rates: [],
+      bitcoin_prices: []
     }
   }
 
   componentDidMount(){
-    this.fetchRates()
-
     setInterval( () => {
       this.fetchRates()
-    }, 3000);
+      this.fetchBPI()
+    }, 1000);
 
   }
 
@@ -24,6 +24,22 @@ class Body extends React.Component {
       .then( (data) => {
         this.setState({
           exchange_rates: Object.entries(data)
+        })
+      })
+      .catch( (error) => {
+        console.log(error)
+      })
+  }
+
+  //BPI => Bitcoins Price Index
+  fetchBPI(){
+    fetch('https://api.coindesk.com/v1/bpi/currentprice/usd.json')
+      .then( (response) => {
+        return response.json()
+      })
+      .then( (data) => {
+        this.setState({
+          bitcoin_prices: Object.entries(data)
         })
       })
       .catch( (error) => {
